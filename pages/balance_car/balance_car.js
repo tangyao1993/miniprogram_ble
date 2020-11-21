@@ -166,8 +166,7 @@ Page({
 
 
   writeBLECharacteristicValue(message) {
-    var strArray = "666";
-    var bufferstr = util.hexStringToBuff(strArray);
+    var bufferstr = util.hexStringToBuff(message);
  
  
     console.log("发送服务码：" + this._characteristicId)
