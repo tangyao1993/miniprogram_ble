@@ -1,0 +1,16 @@
+<view class="section">
+  <view class="tui-table-view">
+    <view class="tui-col-3" bindtap="balance_car_btnclick">
+      <icon type="info" size='30'></icon>
+      <view>平衡车遥控</view>
+    </view>
+    <view class="tui-col-3">
+      <icon type="info" size='30'></icon>
+      <view>暂无</view>
+    </view>
+    <view class="tui-col-3">
+      <icon type="info" size='30'></icon>
+      <view>暂无</view>
+    </view>
+  </view>
+</view>
