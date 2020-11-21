@@ -187,16 +187,18 @@ Page({
   },
 
   up: function () {
-    this.send("123");
+    this.send("w");
+  },
+  left:function(){
+    
+  },
+  stop:function(){
+    this.send("q");
+  },
+  right:function(){
+    
+  },
+  back:function(){
+    this.send("e");
   },
 })
-
-// 字符串转byte
-function stringToBytes(str) {
-  var array = new Uint8Array(str.length);
-  for (var i = 0, l = str.length; i < l; i++) {
-    array[i] = str.charCodeAt(i);
-  }
-  console.log(array);
-  return array.buffer;
-}
