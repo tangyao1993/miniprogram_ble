@@ -5,12 +5,14 @@
     "pages/balance_car/balance_car",
     "pages/ble/ble"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle":"black"
+  "window": {
+    "navigationBarBackgroundColor": "#39b54a",
+    "navigationBarTitleText": "Happy",
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "white"
   },
-  "style": "v2",
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom"
+  },
   "sitemapLocation": "sitemap.json"
 }

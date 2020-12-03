@@ -1,60 +1,73 @@
 //index.js
 //获取应用实例
-const app = getApp()
-
-Page({
+Component({
+  options: {
+    addGlobalClass: true,
+  },
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
-  },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
-  },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
-  },
-
-  balance_car_btnclick:function(e){
-    wx.navigateTo({
-      url: '../ble/ble'
-    })
+    elements: [{
+        title: '蓝牙遥控',
+        name: 'ble',
+        color: 'cyan',
+        icon: 'newsfill'
+      },
+      // {
+      //   title: '参数',
+      //   name: 'background',
+      //   color: 'blue',
+      //   icon: 'colorlens'
+      // },
+      // {
+      //   title: '文本',
+      //   name: 'text',
+      //   color: 'purple',
+      //   icon: 'font'
+      // },
+      // {
+      //   title: '图标 ',
+      //   name: 'icon',
+      //   color: 'mauve',
+      //   icon: 'icon'
+      // },
+      // {
+      //   title: '按钮',
+      //   name: 'button',
+      //   color: 'pink',
+      //   icon: 'btn'
+      // },
+      // {
+      //   title: '标签',
+      //   name: 'tag',
+      //   color: 'brown',
+      //   icon: 'tagfill'
+      // },
+      // {
+      //   title: '头像',
+      //   name: 'avatar',
+      //   color: 'red',
+      //   icon: 'myfill'
+      // },
+      // {
+      //   title: '进度条',
+      //   name: 'progress',
+      //   color: 'orange',
+      //   icon: 'icloading'
+      // },
+      // {
+      //   title: '边框阴影',
+      //   name: 'shadow',
+      //   color: 'olive',
+      //   icon: 'copy'
+      // },
+      // {
+      //   title: '加载',
+      //   name: 'loading',
+      //   color: 'green',
+      //   icon: 'loading2'
+      // },
+    ],
   }
 })
+
+
+
