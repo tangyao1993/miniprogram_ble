@@ -60,9 +60,9 @@ Page({
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
-    wx.stopDeviceMotionListening();
-  },
+  // onHide: function () {
+  //   wx.stopDeviceMotionListening();
+  // },
 
   /**
    * 生命周期函数--监听页面卸载
