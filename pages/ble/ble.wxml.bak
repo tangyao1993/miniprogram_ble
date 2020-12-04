@@ -1,6 +1,0 @@
-<view class="tui-content">
-  <view class="tui-menu-list" wx:for="{{dataList}}">
-    <view bindtap="connectBle" data-id="{{item.deviceId}}">蓝牙名称:{{item.name}},deviceId:{{item.deviceId}},信号强度:{{item.RSSI}}</view>
-  </view>
-  <view>下拉刷新获取蓝牙设备</view>
-</view>

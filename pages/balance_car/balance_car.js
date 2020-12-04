@@ -21,7 +21,8 @@ Page({
     deviceId:"",
     services:[],
     characteristicId:"",
-    serviceId:""
+    serviceId:"",
+    switch:false,
 
   },
 
@@ -40,18 +41,40 @@ Page({
         that.setData({
           services: services,
           deviceId:deviceId
-
         });
         
       }
     });
+    wx.startDeviceMotionListening({
+      success(res){
+        console.log("startGyro")
+      },
+      fail(res){
+      },
+      complete(res){
+      }
+    });
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+    wx.stopDeviceMotionListening();
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+    wx.stopDeviceMotionListening();
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    var that = this;
     setTimeout(function() {
       // 必须在这里的回调才能获取
       wx.onBLECharacteristicValueChange(function(characteristic) {
@@ -61,8 +84,6 @@ Page({
         console.log(a);
       })
    }, 2000);
-    
-
   },
 
   /**
@@ -73,50 +94,6 @@ Page({
   getUint8Value:function(e) {
     for (var a = e, i = new DataView(a), n = "", s = 0; s < i.byteLength; s++) n += String.fromCharCode(i.getUint8(s));
     return n;
-  },
-
-  
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
   },
 
   send:function(message){
@@ -163,14 +140,9 @@ Page({
     }
   },
 
-
-
   writeBLECharacteristicValue(message) {
     var bufferstr = util.hexStringToBuff(message);
- 
- 
     console.log("发送服务码：" + this._characteristicId)
- 
     wx.writeBLECharacteristicValue({
       deviceId: this._deviceId,
       serviceId: this._serviceId,
@@ -185,19 +157,41 @@ Page({
     })
   },
 
-  up: function () {
-    this.send("w");
-  },
-  left:function(){
-    
-  },
-  stop:function(){
-    this.send("q");
-  },
-  right:function(){
-    
-  },
-  back:function(){
-    this.send("e");
-  },
+  switch:function(e){
+    var stopCount =0;
+    var that = this;
+    that.data.switch = !that.data.switch;
+    console.log(that.data.switch);
+    if(that.data.switch){
+      console.log("222");
+      wx.onDeviceMotionChange(function(e){
+        //手机竖拿，beta为前后方向(前为负，后为正)，gamma为左右方向（左为负，右为正），alpha为旋转方向
+        if(e.beta < -10){
+          console.log("前进");
+          stopCount = 0;
+        }else if(e.beta > 20){
+          console.log("后退");
+          stopCount = 0;
+        }else if(e.gamma < -30){
+          console.log("左转");
+          stopCount = 0;
+        }else if(e.gamma >30){
+          console.log("右转");
+          stopCount = 0;
+        }else{
+          stopCount++;
+          if(stopCount >3){
+            console.log("停止");
+            stopCount = 0;
+          }
+          
+        }
+      })
+    }else{
+      wx.offDeviceMotionChange();
+      stopCount = 0;
+    }
+  }
+
+    //调用this.send("");给蓝牙发送消息
 })

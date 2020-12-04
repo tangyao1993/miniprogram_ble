@@ -41,7 +41,7 @@
   "compileType": "miniprogram",
   "libVersion": "2.0.4",
   "appid": "wxc21071682abcdfaa",
-  "projectname": "ble_controller",
+  "projectname": "My-Controller-Center",
   "debugOptions": {
     "hidedInDevtools": []
   },

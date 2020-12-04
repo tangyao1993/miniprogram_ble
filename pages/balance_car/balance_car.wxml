@@ -1,41 +1,13 @@
-<view class="section">
-  <view class="tui-table-view">
-    <view class="tui-col-3">
-      <icon type="" size='30'></icon>
-      <view></view>
-    </view>
-    <view class="tui-col-3" bindtap="up">
-      <icon type="info" size='30'></icon>
-      <view>↑</view>
-    </view>
-    <view class="tui-col-3">
-      <icon type="" size='30'></icon>
-      <view></view>
-    </view>
-    <view class="tui-col-3" bindtap="left">
-      <icon type="info" size='30'></icon>
-      <view>←</view>
-    </view>
-    <view class="tui-col-3" bindtap="stop">
-      <icon type="info" size='30'></icon>
-      <view>停止</view>
-    </view>
-    <view class="tui-col-3" bindtap="right">
-      <icon type="info" size='30'></icon>
-      <view>→</view>
-    </view>
-    <view class="tui-col-3">
-      <icon type="" size='30'></icon>
-      <view></view>
-    </view>
-    <view class="tui-col-3" bindtap="back">
-      <icon type="info" size='30'></icon>
-      <view>↓</view>
-    </view>
-    <view class="tui-col-3">
-      <icon type="" size='30'></icon>
-      <view></view>
-    </view>
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">按钮</view>
+</cu-custom>
+<view class="cu-bar margin-top bg-white">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text>遥控开关
+  </view>
+  <view class="action">
+    <text class="text-df margin-right-sm"></text>
+    <switch class="sm" bindchange="switch"></switch>
   </view>
 </view>
-
