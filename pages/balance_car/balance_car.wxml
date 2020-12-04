@@ -11,3 +11,13 @@
     <switch class="sm" bindchange="switch"></switch>
   </view>
 </view>
+
+
+<view class="padding text-center">
+  <view class="padding-lr bg-white margin-top">
+    <view class="solid-bottom padding">
+    <text class="text text-xsl text-red">{{operate}}</text>
+    </view>
+    <view class="padding">当前执行操作</view>
+  </view>
+</view>

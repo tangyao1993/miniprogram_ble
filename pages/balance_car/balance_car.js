@@ -23,6 +23,7 @@ Page({
     characteristicId:"",
     serviceId:"",
     switch:false,
+    operate:"关闭",
 
   },
 
@@ -163,25 +164,35 @@ Page({
     that.data.switch = !that.data.switch;
     console.log(that.data.switch);
     if(that.data.switch){
-      console.log("222");
       wx.onDeviceMotionChange(function(e){
         //手机竖拿，beta为前后方向(前为负，后为正)，gamma为左右方向（左为负，右为正），alpha为旋转方向
         if(e.beta < -10){
-          console.log("前进");
+          that.setData({
+            operate: "前进"
+          }),
           stopCount = 0;
         }else if(e.beta > 20){
-          console.log("后退");
+          that.setData({
+            operate: "后退"
+          }),
           stopCount = 0;
-        }else if(e.gamma < -30){
-          console.log("左转");
+        }else if(e.gamma < -20){
+          that.setData({
+            operate: "左转"
+          }),
           stopCount = 0;
-        }else if(e.gamma >30){
-          console.log("右转");
+
+        }else if(e.gamma >20){
+          that.setData({
+            operate: "右转"
+          }),
           stopCount = 0;
         }else{
           stopCount++;
           if(stopCount >3){
-            console.log("停止");
+            that.setData({
+              operate: "停止"
+            }),
             stopCount = 0;
           }
           
@@ -190,8 +201,11 @@ Page({
     }else{
       wx.offDeviceMotionChange();
       stopCount = 0;
+      that.setData({
+        operate: "关闭"
+      })
     }
-  }
+  },
 
     //调用this.send("");给蓝牙发送消息
 })
