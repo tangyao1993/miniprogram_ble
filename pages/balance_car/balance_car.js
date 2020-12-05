@@ -47,8 +47,9 @@ Page({
       }
     });
     wx.startDeviceMotionListening({
+      interval:'game',
       success(res){
-        console.log("startGyro")
+        console.log("startDeviceMotionListening")
       },
       fail(res){
       },
@@ -166,30 +167,50 @@ Page({
     if(that.data.switch){
       wx.onDeviceMotionChange(function(e){
         //手机竖拿，beta为前后方向(前为负，后为正)，gamma为左右方向（左为负，右为正），alpha为旋转方向
-        if(e.beta < -10){
+        if(e.beta < -30){
+          if(false ===(that.data.operate === "前进")){
+            that.send("go");
+          }
           that.setData({
             operate: "前进"
           }),
           stopCount = 0;
-        }else if(e.beta > 20){
+          
+          
+        }else if(e.beta > 40){
+          if(false ===(that.data.operate === "后退")){
+            that.send("back");
+          }
           that.setData({
             operate: "后退"
           }),
           stopCount = 0;
-        }else if(e.gamma < -20){
+          
+          
+        }else if(e.gamma < -40){
+          if(false ===(that.data.operate === "左转")){
+            that.send("left");
+          }
           that.setData({
             operate: "左转"
           }),
           stopCount = 0;
-
-        }else if(e.gamma >20){
+        }else if(e.gamma >40){
+          if(false === (that.data.operate === "右转")){
+            that.send("right");
+          }
           that.setData({
             operate: "右转"
           }),
           stopCount = 0;
+          
+          
         }else{
           stopCount++;
           if(stopCount >3){
+            if(false === (that.data.operate === "停止")){
+              that.send("stop");
+            }
             that.setData({
               operate: "停止"
             }),
@@ -203,7 +224,8 @@ Page({
       stopCount = 0;
       that.setData({
         operate: "关闭"
-      })
+      }),
+      that.send("stop");
     }
   },
 
