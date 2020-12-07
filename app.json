@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/balance_car/balance_car",
-    "pages/ble/ble"
+    "pages/ble/ble",
+    "pages/ble2/ble2"
   ],
   "window": {
     "navigationBarBackgroundColor": "#39b54a",

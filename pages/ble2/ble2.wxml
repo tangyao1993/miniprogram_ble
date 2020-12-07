@@ -1,0 +1,25 @@
+<scroll-view scroll-y="{{modalName==null}}" class="page {{modalName!=null?'show':''}}">
+  <cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">蓝牙</view>
+  </cu-custom>
+
+  <view class="cu-bar bg-white solid-bottom margin-top">
+    <view class="action">
+      <text class="cuIcon-title text-orange "></text> 蓝牙列表
+    </view>
+    <view class="action">
+      <button class="cu-btn bg-green shadow" bindtap="getBle" data-target="menuModal">获取蓝牙</button>
+    </view>
+  </view>
+  <view wx:for="{{dataList}}" class="cu-list menu {{menuBorder?'sm-border':''}} {{menuCard?'card-menu margin-top':''}}">
+    <view bindtap="connectBle" data-id="{{item.deviceId}}" class="cu-item {{menuArrow?'arrow':''}}">
+      <navigator class="content" hover-class="none">
+        <text class="cuIcon-discoverfill text-orange"></text>
+        <text class="text-grey">蓝牙名称:{{item.name}},deviceId:{{item.deviceId}},信号强度:{{item.RSSI}}</text>
+      </navigator>
+    </view>
+    
+  </view>
+  
+</scroll-view>

@@ -11,12 +11,12 @@ Component({
         color: 'cyan',
         icon: 'newsfill'
       },
-      // {
-      //   title: '参数',
-      //   name: 'background',
-      //   color: 'blue',
-      //   icon: 'colorlens'
-      // },
+      {
+        title: '方向键遥控',
+        name: 'ble2',
+        color: 'blue',
+        icon: 'colorlens'
+      },
       // {
       //   title: '文本',
       //   name: 'text',
