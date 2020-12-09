@@ -1,0 +1,61 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">遥控</view>
+</cu-custom>
+<view class="grid col-3 padding-sm">
+  <view class="padding-sm">
+    <view class="bg-gray padding radius text-center shadow-blur">
+    </view>
+  </view>
+
+  <view class="padding-sm">
+    <view class="bg-orange padding radius text-center shadow-blur">
+      <view class="text-lg">↑</view>
+      <view class="margin-top-sm text-Abc">up</view>
+    </view>
+  </view>
+
+  <view class="padding-sm">
+    <view class="bg-gray padding radius text-center shadow-blur">
+    </view>
+  </view>
+
+  <view class="padding-sm">
+    <view class="bg-olive padding radius text-center shadow-blur">
+      <view class="text-lg">←</view>
+      <view class="margin-top-sm text-Abc">left</view>
+    </view>
+  </view>
+
+
+  <view class="padding-sm">
+    <view class="bg-green padding radius text-center shadow-blur">
+      <view class="text-lg">停止</view>
+      <view class="margin-top-sm text-Abc">stop</view>
+    </view>
+  </view>
+
+  <view class="padding-sm">
+    <view class="bg-cyan padding radius text-center shadow-blur">
+      <view class="text-lg">→</view>
+      <view class="margin-top-sm text-Abc">right</view>
+    </view>
+  </view>
+
+
+  <view class="padding-sm">
+    <view class="bg-gray padding radius text-center shadow-blur">
+    </view>
+  </view>
+
+  <view class="padding-sm">
+    <view class="bg-purple padding radius text-center shadow-blur">
+      <view class="text-lg">↓</view>
+      <view class="margin-top-sm text-Abc">down</view>
+    </view>
+  </view>
+  <view class="padding-sm">
+    <view class="bg-gray padding radius text-center shadow-blur">
+    </view>
+  </view>
+</view>

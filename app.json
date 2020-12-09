@@ -4,7 +4,8 @@
     "pages/logs/logs",
     "pages/balance_car/balance_car",
     "pages/ble/ble",
-    "pages/ble2/ble2"
+    "pages/ble2/ble2",
+    "pages/direction_controller/direction_controller"
   ],
   "window": {
     "navigationBarBackgroundColor": "#39b54a",
