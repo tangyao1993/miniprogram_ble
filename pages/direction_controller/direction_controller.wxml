@@ -8,7 +8,7 @@
     </view>
   </view>
 
-  <view class="padding-sm">
+  <view class="padding-sm" bindtap="up">
     <view class="bg-orange padding radius text-center shadow-blur">
       <view class="text-lg">↑</view>
       <view class="margin-top-sm text-Abc">up</view>
@@ -20,7 +20,7 @@
     </view>
   </view>
 
-  <view class="padding-sm">
+  <view class="padding-sm" bindtap="left">
     <view class="bg-olive padding radius text-center shadow-blur">
       <view class="text-lg">←</view>
       <view class="margin-top-sm text-Abc">left</view>
@@ -28,14 +28,14 @@
   </view>
 
 
-  <view class="padding-sm">
+  <view class="padding-sm" bindtap="stop">
     <view class="bg-green padding radius text-center shadow-blur">
       <view class="text-lg">停止</view>
       <view class="margin-top-sm text-Abc">stop</view>
     </view>
   </view>
 
-  <view class="padding-sm">
+  <view class="padding-sm" bindtap="right">
     <view class="bg-cyan padding radius text-center shadow-blur">
       <view class="text-lg">→</view>
       <view class="margin-top-sm text-Abc">right</view>
@@ -48,7 +48,7 @@
     </view>
   </view>
 
-  <view class="padding-sm">
+  <view class="padding-sm" bindtap="down">
     <view class="bg-purple padding radius text-center shadow-blur">
       <view class="text-lg">↓</view>
       <view class="margin-top-sm text-Abc">down</view>

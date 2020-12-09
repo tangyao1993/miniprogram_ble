@@ -151,6 +151,36 @@ Page({
 
     //调用this.send("");给蓝牙发送消息
 
+    up:function(){
+      console.log("go");
+      var that = this;
+      that.send("go");
+    },
+
+    down:function(){
+      console.log("back");
+      var that = this;
+      that.send("back");
+    },
+
+    left:function(){
+      console.log("left");
+      var that = this;
+      that.send("left");
+    },
+
+    right:function(){
+      console.log("right");
+      var that = this;
+      that.send("right");
+    },
+
+    stop:function(){
+      console.log("stop");
+      var that = this;
+      that.send("stop");
+    },
+
 
 
 
